@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mon Panier - GreenBite</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/panier.css" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav id="nav" class="nav">
+      <h1><span>G</span>reen<span>B</span>ite</h1>
+      <ul>
+        <li id="label" onclick="mobile()"><i class="fas fa-bars"></i></li>
+        <a href="index.html"><li>Accueil</li></a>
+        <a href="index.html#recipies"><li>Recettes</li></a>
+        <a href="index.html#newsletter"><li>Contact</li></a>
+        <a href="panier.html"
+          ><li class="active">Panier <span class="cart-count">0</span></li></a
+        >
+        <a href="admin/login.html"><button>Admin</button></a>
+      </ul>
+    </nav>
+
+    <!-- Page Panier -->
+    <div class="page-panier">
+      <div class="container">
+        <h1>🛒 Mon Panier</h1>
+
+        <div class="panier-container">
+          <!-- Articles du panier -->
+          <div class="panier-left">
+            <div id="cart-items">
+              <!-- Les articles seront chargés dynamiquement -->
+            </div>
+
+            <div id="empty-cart" style="display: none">
+              <div class="empty-cart-message">
+                <i class="fas fa-shopping-cart"></i>
+                <h2>Votre panier est vide</h2>
+                <p>Découvrez nos délicieuses recettes saines !</p>
+                <a href="index.html#recipies" class="btn-primary">
+                  Voir le menu
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Résumé de la commande -->
+          <div class="panier-right">
+            <div class="cart-summary">
+              <h2>Résumé de la commande</h2>
+
+              <div class="summary-line">
+                <span>Sous-total:</span>
+                <span id="subtotal">0.00 DT</span>
+              </div>
+
+              <div class="summary-line">
+                <span>Livraison:</span>
+                <span>3.00 DT</span>
+              </div>
+
+              <hr />
+
+              <div class="summary-line total-line">
+                <span>Total:</span>
+                <span id="total-cart">0.00 DT</span>
+              </div>
+
+              <button id="checkout-btn" class="btn-commander btn-block">
+                Commander 🚀
+              </button>
+
+              <div class="secure-payment">
+                <i class="fas fa-lock"></i>
+                <span>Paiement 100% sécurisé</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="column important">
+        <h3>Merci à vous !</h3>
+        <p>&copy; Copyright GreenBite, 2025 | Tous droits réservés</p>
+      </div>
+      <div class="column">
+        <h3>Nos services</h3>
+        <p>Boutiques</p>
+        <p>Restaurant</p>
+        <p>Livraison</p>
+      </div>
+      <div class="column">
+        <h3>Recrutement</h3>
+        <p>Recrutement@greenbite.tn</p>
+        <p>Postuler pour un emploi</p>
+        <p>job étudiant</p>
+      </div>
+      <div class="column">
+        <h3>Nos locaux</h3>
+        <p>Sfax</p>
+        <p>Gabes</p>
+        <p>Djerba</p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+      // Charger et afficher le panier au chargement de la page
+      document.addEventListener("DOMContentLoaded", function () {
+        displayCart();
+      });
+    </script>
+  </body>
+</html>

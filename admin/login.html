@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connexion Admin - GreenBite</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="css/admin.css" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
+  </head>
+  <body>
+    <div class="login-page">
+      <div class="login-container">
+        <div class="login-box">
+          <div class="logo-admin">
+            <h1><span>G</span>reen<span>B</span>ite</h1>
+            <p>Espace Administrateur</p>
+          </div>
+
+          <form id="login-form">
+            <div class="form-group">
+              <label for="username">
+                <i class="fas fa-user"></i> Nom d'utilisateur
+              </label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                required
+                autofocus
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="password">
+                <i class="fas fa-lock"></i> Mot de passe
+              </label>
+              <input type="password" id="password" name="password" required />
+            </div>
+
+            <button type="submit" class="btn-login">
+              <i class="fas fa-sign-in-alt"></i> Se connecter
+            </button>
+          </form>
+
+          <div id="login-message"></div>
+
+          <div class="back-link">
+            <a href="../index.html">
+              <i class="fas fa-arrow-left"></i> Retour au site
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("login-form")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+          const messageDiv = document.getElementById("login-message");
+
+          const formData = new FormData();
+          formData.append("action", "login");
+          formData.append("username", username);
+          formData.append("password", password);
+
+          try {
+            const response = await fetch("../php/auth.php", {
+              method: "POST",
+              body: formData,
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+              messageDiv.innerHTML =
+                '<p class="success-message"><i class="fas fa-check-circle"></i> Connexion réussie ! Redirection...</p>';
+              setTimeout(() => {
+                window.location.href = "dashboard.html";
+              }, 1000);
+            } else {
+              messageDiv.innerHTML =
+                '<p class="error-message"><i class="fas fa-times-circle"></i> ' +
+                data.message +
+                "</p>";
+            }
+          } catch (error) {
+            console.error("Erreur:", error);
+            messageDiv.innerHTML =
+              '<p class="error-message"><i class="fas fa-exclamation-circle"></i> Erreur de connexion au serveur</p>';
+          }
+        });
+    </script>
+  </body>
+</html>

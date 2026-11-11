@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GreenBite - Healthy Food</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/panier.css" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
+  </head>
+  <body>
+    <nav id="nav" class="nav">
+      <h1><span>G</span>reen<span>B</span>ite</h1>
+      <ul>
+        <li id="label" onclick="mobile()"><i class="fas fa-bars"></i></li>
+        <li>Accueil</li>
+        <a href="#recipies"><li>Recettes</li></a>
+        <a href="#newsletter"><li>Contact</li></a>
+        <a href="panier.html"
+          ><li>Panier <span class="cart-count">0</span></li></a
+        >
+        <a href="admin/login.html"><button>Admin</button></a>
+      </ul>
+    </nav>
+
+    <header>
+      <div class="left">
+        <h1>One Green Byte, One Healthy Life!</h1>
+        <p>
+          Chaque bouchée compte pour votre bien-être. Savourez le plaisir sain,
+          une étape à la fois vers une vie équilibrée
+        </p>
+        <button onclick="window.location.href='#recipies'">Commencer</button>
+      </div>
+      <div class="right">
+        <img src="images/img2.jpg" alt="header photo" />
+      </div>
+    </header>
+
+    <section class="presentation">
+      <div class="left">
+        <img src="images/salade.jpg" alt="" />
+      </div>
+      <div class="right">
+        <p class="mini-title">A propos de nous</p>
+        <h1>Que faisons-nous de spécial dans nos restaurants ?</h1>
+        <p class="description">
+          Nous avons choisi d'offrir une cuisine saine et accessible à tous,
+          avec des plats 100 % sans gluten, sans lactose ou préparés à partir
+          d'ingrédients bio. Notre objectif : prouver qu'une alimentation saine
+          peut être délicieuse, variée et pleine de saveurs.
+        </p>
+      </div>
+    </section>
+
+    <section id="recipies">
+      <p class="mini-title">Nos recettes</p>
+      <h2>Qui sont les plus populaires ?</h2>
+      <div class="cards">
+        <!-- Les plats seront chargés dynamiquement depuis la base de données -->
+      </div>
+    </section>
+
+    <section id="newsletter">
+      <h1>Inscrivez-vous à notre newsletter</h1>
+      <form>
+        <input type="text" placeholder="Votre email..." />
+        <button type="button">S'abonner</button>
+      </form>
+    </section>
+
+    <footer>
+      <div class="column important">
+        <h3>Merci à vous !</h3>
+        <p>&copy; Copyright GreenBite, 2025 | Tous droits réservés</p>
+      </div>
+      <div class="column">
+        <h3>Nos services</h3>
+        <p>Boutiques</p>
+        <p>Restaurant</p>
+        <p>Livraison</p>
+      </div>
+      <div class="column">
+        <h3>Recrutement</h3>
+        <p>Recrutement@greenbite.tn</p>
+        <p>Postuler pour un emploi</p>
+        <p>job étudiant</p>
+      </div>
+      <div class="column">
+        <h3>Nos locaux</h3>
+        <p>Sfax</p>
+        <p>Gabes</p>
+        <p>Djerba</p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
